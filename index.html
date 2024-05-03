@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Sophie Bluel - Architecte d'intérieur</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
+	<meta name="description" content="">
+	<link rel="stylesheet" href="./assets/style.css">
+	<script type="module" src="./assets/script.js" defer></script>
+</head>
+<body>
+<header>
+	<a href=""><h1>Sophie Bluel <span>Architecte d'intérieur</span></h1></a>
+	<nav>
+		<ul class="header__nav--ul">
+			<li id="link-projects"><a class="nav-links" href="#portfolio">projets</a></li>
+			<li id="link-contact"><a class="nav-links" href="#contact">contact</a></li>
+			<li id="link-login"><a class="nav-links"></a>login</li>
+			<li><a href="https://www.instagram.com/"><img src="./assets/icons/instagram.png" alt="Instagram"></a></li>
+		</ul>
+	</nav>
+</header>
+<main>
+	<section id="introduction">
+		<figure>
+			<img src="./assets/images/sophie-bluel.png" alt="">
+		</figure>
+		<article>
+			<h2>Designer d'espace</h2>
+			<p>Je raconte votre histoire, je valorise vos idées. Je vous accompagne de la conception à la livraison finale du chantier.</p>
+			<p>Chaque projet sera étudié en commun, de façon à mettre en valeur les volumes, les matières et les couleurs dans le respect de l’esprit des lieux et le choix adapté des matériaux. Le suivi du chantier sera assuré dans le souci du détail, le respect du planning et du budget.</p>
+			<p>En cas de besoin, une équipe pluridisciplinaire peut-être constituée : architecte DPLG, décorateur(trice)</p>
+		</article>
+	</section>
+	<section id="portfolio">
+		<div class="projects-title"><h2>Mes Projets</h2></div>
+		
+		<!--Ajout des filtres en HTML-->
+		<section class="filters">
+			<button class="filters__btn all">Tout
+			</button>
+			<button class="filters__btn objects" data-category="Objets">Objets
+			</button>
+			<button class="filters__btn flats" data-category="Appartements">Appartements
+			</button>
+			<button class="filters__btn hotels" data-category="Hotels & restaurants">Hôtels & restaurants
+			</button>
+		</section>
+		<div class="gallery">
+			<!-- Suppression du HTML qui a été remplaçé par le contenu ajouté
+				dynamiquement par JavaScript
+			<figure>
+			<img src="assets/images/abajour-tahina.png" alt="Abajour Tahina">
+			<figcaption>Abajour Tahina</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-v.png" alt="Appartement Paris V">
+				<figcaption>Appartement Paris V</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/restaurant-sushisen-londres.png" alt="Restaurant Sushisen - Londres">
+				<figcaption>Restaurant Sushisen - Londres</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/la-balisiere.png" alt="Villa “La Balisiere” - Port Louis">
+				<figcaption>Villa “La Balisiere” - Port Louis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/structures-thermopolis.png" alt="Structures Thermopolis">
+				<figcaption>Structures Thermopolis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-x.png" alt="Appartement Paris X">
+				<figcaption>Appartement Paris X</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/le-coteau-cassis.png" alt="Pavillon “Le coteau” - Cassis">
+				<figcaption>Pavillon “Le coteau” - Cassis</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/villa-ferneze.png" alt="Villa Ferneze - Isola d’Elba">
+				<figcaption>Villa Ferneze - Isola d’Elba</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/appartement-paris-xviii.png" alt="Appartement Paris XVIII">
+				<figcaption>Appartement Paris XVIII</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/bar-lullaby-paris.png" alt="Bar “Lullaby” - Paris">
+				<figcaption>Bar “Lullaby” - Paris</figcaption>
+			</figure>
+			<figure>
+				<img src="assets/images/hotel-first-arte-new-delhi.png" alt="Hotel First Arte - New Delhi">
+				<figcaption>Hotel First Arte - New Delhi</figcaption>
+			</figure> -->
+		</div>
+	</section>
+	<section id="contact">
+		<h2>Contact</h2>
+		<p>Vous avez un projet ? Discutons-en !</p>
+		<form action="#" method="post">
+			<label for="name">Nom</label>
+			<input class="input-style" type="text" name="name" id="name">
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email">
+			<label for="message">Message</label>
+			<textarea name="message" id="message" cols="30" rows="10"></textarea>
+			<input type="submit" value="Envoyer">
+		</form>
+	</section>
+	<section id="login-section">
+		<h2 class="login-title">Log in</h2>
+		<!-- Action mis en valeur "vide" sinon le navigateur envoyait vers une page avec la valeur "login-form" en fin de path -->
+		<form action="" method="post" id="login-form">
+			<label for="emailLogin">Email</label>
+			<input type="email" name="emailInput" id="emailInput" value="sophie.bluel@test.tld">
+			<label for="password">Mot de passe</label>
+			<input type="password" name="passwordInput" id="passwordInput" value="S0phie">
+			<input class="login-btn" type="submit" value="Se connecter">
+			<span class="forgotten">Mot de passe oublié</span>		
+		</form>
+	</section>
+	<!-- Ajout de la modal en HTML-->	 
+	<aside id="modal">
+		<div class="modal-wrapper">
+			<div class="xmark-container">
+				<i class="fa-solid fa-arrow-left"></i>
+				<i class="fa-solid fa-xmark"></i>
+			</div>
+			<section id="modal-gallery">
+					<h3 id="modal-title">Galerie photo</h3>
+					<div class="modal-gallery__eraser">
+					</div>
+					<div class="btn-container">
+					<button class="access-to-add-images">Ajouter une photo</button>
+					</div>
+				<div id="confirmationModal" class="modal">
+					<div class="modal-content">
+					  <p>Effacer ce projet?</p>
+					  <button id="yesButton">Oui</button>
+					  <button id="noButton">Non</button>
+					</div>
+				</div>
+				<div class="img-added-confirmation">
+					<div class="img-added-confirmation__content">
+					  <p>Projet ajouté avec succès!</p>
+					  <i class="fa-regular fa-file-image"></i>
+					</div>
+				</div>
+			</section>  
+			<section id="modal-send">
+				<h3 id="modal-title-add">Ajout photo</h3>
+				<div id="modal-send__form-container">
+					<form enctype="multipart/form-data" method="post" id="modal-send-form">
+						<div class="modal-send-form__inputs">
+							<input type="file" id="image-upload-input-file" name="image" hidden>
+							<label for="image-upload-input-file" id="image-upload-label">
+								<div class="image-upload-label__container">
+									<i class="fa-regular fa-image"></i>
+									<span class="image-upload-label__container--btn">+ Ajouter une photo</span>
+									<span class="image-upload-label__container--text">jpg, png : 4mo max</span>
+							  	</div>
+							</label>
+							<label for="title" class="modal-send__form-container--title-label">Titre</label>
+							<input type="text" name="title" id="image-upload-input-title" class="modal-send__form-container--title">
+							<label for="category" class="modal-send__form-container--category-label">Catégorie</label>
+							<select name="category" id="image-upload-input-category" class="modal-send__form-container--category">
+							</select>
+						</div>
+						<div class="upload-btn-container">
+							<input id="submit-image-upload-btn" type="submit" value="Valider" disabled="disabled">
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	</aside>
+</main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>2024 - Copyright Julien Gardier</li>
+		</ul>
+	</nav>
+</footer>
+</body>
+</html>
