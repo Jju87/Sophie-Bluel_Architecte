@@ -82,7 +82,7 @@ let passwordInput = document.getElementById("passwordInput")
 
 // Fonction qui permet de récupérer le token de l'utilisateur et de le stocker dans le localstorage
 export async function userLogin() {
-    const responseLogin = await fetch("http://localhost:5678/api/users/login", {
+    const responseLogin = await fetch("https://sophie-bluel-three.vercel.app/api/users/login", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

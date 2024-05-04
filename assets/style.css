@@ -42,6 +42,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	overflow-x: hidden;	
 }
 main {
 	margin: 90px;
@@ -116,6 +117,12 @@ nav li {
 .nav-links:hover, li:hover {
 	color: #B1663C;
 	cursor: pointer;
+}
+nav ul li img{
+	transition: 300ms ease-out;
+}
+nav ul li img:hover{
+	transform: scale(1.05);
 }
 #introduction {
 	display: flex;
@@ -327,18 +334,24 @@ footer nav ul {
 
 .edit-section{
 	background-color: black;
-	height: 60px;
+	color: white;
+	height: 70px;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
+	gap: 20px;
 	align-items: center;
 	margin-left: calc(-1 * ((100vw - 100%) / 2));
-	
+}
+.edit-section p{
+	font-size: 12px;
+	text-align: center;
+	padding-left: 20px;
+	padding-right: 20px;
+
 }
 
-.edit-msg{
-	color: white;
-}
 .projects-title{
 	position: relative;
 	width: 200px;
@@ -619,6 +632,9 @@ footer nav ul {
 	#introduction h2 {
  		text-align: center;	
 	}
+	#introduction p {
+		text-align: center;
+	}
 	.modify-btn{
 		color: black;
 		position: absolute;
@@ -653,9 +669,6 @@ footer nav ul {
 }
 
 @media screen and (max-width: 600px){
-	body{
-		overflow-x: hidden;
-	}
 	header{
 		flex-direction: column;
 		align-items: center;

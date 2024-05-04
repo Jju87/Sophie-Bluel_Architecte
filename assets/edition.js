@@ -33,7 +33,9 @@ export function handleEditionPage() {
         editSection.innerHTML = `<div class="edit-msg">
                                     <i class="fa-solid fa-pen-to-square"></i> 
                                     <span>Mode édition</span>
-                                </div>`
+                                </div>
+                                <p>Bienvenue Sophie! Vous pouvez ajouter ou supprimer un projet en cliquant sur "modifier".</p>
+                                `
     }
 
     // Affichage du bouton logout et disparition du bouton login
@@ -117,7 +119,7 @@ async function eraseElementByID(id) {
         try {
             // Ici try/catch car on fait une requête DELETE qui peut échouer si 
             // le token n'est pas valide
-            const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+            const response = await fetch(`https://sophie-bluel-three.vercel.app/api/works/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -138,7 +140,7 @@ async function eraseElementByID(id) {
                 }
 
                 // nouvelle requête GET pour récupérer les données à jour après la suppression
-                const response = await fetch("http://localhost:5678/api/works")
+                const response = await fetch("https://sophie-bluel-three.vercel.app/api/works")
                 const newDataAfterDelete = await response.json()
                 console.log('Updated data:', newDataAfterDelete)
                 
@@ -198,7 +200,7 @@ async function generateImagesInModal(data) {
 
 // Fonction qui récupère les données de l'API et qui les affiche dans la modal
 async function fetchDataAndUpdateModal() {
-    const response = await fetch("http://localhost:5678/api/works")
+    const response = await fetch("https://sophie-bluel-three.vercel.app/api/works")
     const data = await response.json()
     generateImagesInModal(data)
     //console.log("fonction fetchDataAndUpdateModal appelée")
@@ -290,7 +292,6 @@ function checkInputs() {
         // Le bouton change de couleur (vert) et indique qu'il est actif
         imageUploadSubmitBtn.style.backgroundColor = "#1D6154"
         imageUploadSubmitBtn.style.cursor = "pointer"
-
     } else {
         // Sinon, on désactive le bouton submit en gardant la propriété disabled à true
         imageUploadSubmitBtn.disabled = true
@@ -361,7 +362,7 @@ const inputSelectCategories = document.getElementById("image-upload-input-catego
 // Appel des catégories de l'API pour les afficher dans le select
 // Prioriser cette méthode plutôt que de des les hardcoder dans le HTML (vu avec mentor)
 async function fetchCategoriesForSelectInput() {
-    const responseCategories = await fetch("http://localhost:5678/api/categories")
+    const responseCategories = await fetch("https://sophie-bluel-three.vercel.app/api/categories")
     const selectCategories = await responseCategories.json()
     //console.log(selectCategories)
 
@@ -384,11 +385,13 @@ fetchCategoriesForSelectInput()
 
 // Au click sur le bouton submit, les données du formulaire sont envoyées
 imageUploadSubmitBtn.addEventListener("click", (event) => {
+    console.log("Submit button clicked")
     event.preventDefault()
+    imageUploadSubmitBtn.value = "Envoi en cours..."
 
     const formData = new FormData()
 
-    // Append the integer value to the FormData object
+    // Ajout des données du formulaire dans le formData
     formData.append('image', imageUploadInputFile.files[0])
     formData.append('title', imageUploadInputTitle.value)
     formData.append('category', inputSelectCategories.value)
@@ -396,7 +399,7 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
 
     // Création de la fonction d'envoi des données du formulaire en utilisant les paramètres formData et token
     async function submitForm(formData, token) {
-        const initialResponse = await fetch("http://localhost:5678/api/works", {
+        const initialResponse = await fetch("https://sophie-bluel-three.vercel.app/api/works", {
             method: 'POST',
             headers: {
                 "accept": "application/json",
@@ -414,7 +417,7 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
             // On appelle la fonction showConfirmationModal pour afficher la modale de confirmation
             showConfirmationModal()
             // nouvelle requête GET pour récupérer les données à jour après la suppression
-            const newResponse = await fetch("http://localhost:5678/api/works")
+            const newResponse = await fetch("https://sophie-bluel-three.vercel.app/api/works")
             const newDataAfterAddedImage = await newResponse.json()
             generateData(newDataAfterAddedImage)
         }
