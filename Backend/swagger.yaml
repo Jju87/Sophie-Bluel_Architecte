@@ -4,7 +4,7 @@ info:
   description: API Backend for Architect Website
   version: 1.0.0
 servers:
-  - url: https://sophie-bluel-three.vercel.app/api/
+  - url: https://sophie-bluel-architectebackend-juliens-projects-231e3a28.vercel.app/api/
 paths:
   /users/login:
     post:
