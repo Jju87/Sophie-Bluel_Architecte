@@ -1,19 +1,14 @@
-
-module.exports = (sequelize, DataTypes) => {
-	const Users = sequelize.define(
-		"users",
+module.exports = mongoose => {
+	const Users = mongoose.model(
+	  "users",
+	  new mongoose.Schema(
 		{
-		email: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			unique: true
-			},
-		password: {
-			type: DataTypes.STRING,
-			allowNull: false
-			}
+		  email: { type: String, required: true, unique: true },
+		  password: { type: String, required: true },
 		},
-		{timestamps:false}
-	)
-	return Users
-}
+		{ timestamps: false }
+	  )
+	);
+  
+	return Users;
+  };

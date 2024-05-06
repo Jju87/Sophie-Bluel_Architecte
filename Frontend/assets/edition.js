@@ -119,7 +119,7 @@ async function eraseElementByID(id) {
         try {
             // Ici try/catch car on fait une requête DELETE qui peut échouer si 
             // le token n'est pas valide
-            const response = await fetch(`https://sophie-bluel-three.vercel.app/api/works/${id}`, {
+            const response = await fetch(`http://localhost:3000/api/works/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -140,12 +140,13 @@ async function eraseElementByID(id) {
                 }
 
                 // nouvelle requête GET pour récupérer les données à jour après la suppression
-                const response = await fetch("https://sophie-bluel-three.vercel.app/api/works")
+                const response = await fetch("http://localhost:3000/api/works")
                 const newDataAfterDelete = await response.json()
                 console.log('Updated data:', newDataAfterDelete)
                 
                 // Génération des données sur la page web après la suppression
                 generateData(newDataAfterDelete)
+                generateImagesInModal(newDataAfterDelete)
 
                 // Messages d'erreur si la requête n'est pas ok qui s'affiche dans la console
             } else {
@@ -178,9 +179,9 @@ async function generateImagesInModal(data) {
 
         // On lie l'id de l'image à celle de la corbeille
         // ...pour pouvoir supprimer l'image en cliquant sur la corbeille
-        const idNumber = designProjects.id
-        img.dataset.id = idNumber
-        eraserButton.dataset.id = idNumber
+        const idNumber = designProjects._id
+        img.dataset._id = idNumber
+        eraserButton.dataset._id = idNumber
 
         // Appel de la fonction eraseElementByID au click sur la corbeille avec l'ID 
         // ... de l'image en paramètre
@@ -200,7 +201,7 @@ async function generateImagesInModal(data) {
 
 // Fonction qui récupère les données de l'API et qui les affiche dans la modal
 async function fetchDataAndUpdateModal() {
-    const response = await fetch("https://sophie-bluel-three.vercel.app/api/works")
+    const response = await fetch("http://localhost:3000/api/works")
     const data = await response.json()
     generateImagesInModal(data)
     //console.log("fonction fetchDataAndUpdateModal appelée")
@@ -362,7 +363,7 @@ const inputSelectCategories = document.getElementById("image-upload-input-catego
 // Appel des catégories de l'API pour les afficher dans le select
 // Prioriser cette méthode plutôt que de des les hardcoder dans le HTML (vu avec mentor)
 async function fetchCategoriesForSelectInput() {
-    const responseCategories = await fetch("https://sophie-bluel-three.vercel.app/api/categories")
+    const responseCategories = await fetch("http://localhost:3000/api/categories")
     const selectCategories = await responseCategories.json()
     //console.log(selectCategories)
 
@@ -374,7 +375,7 @@ async function fetchCategoriesForSelectInput() {
      // Pour chaque catégorie, on crée une option dans le select
      selectCategories.forEach((cat)=>{
         const option = document.createElement("option")
-        option.value = cat.id // Il faut utiliser l'id et non le name (integer attendu par le back-end)
+        option.value = cat._id // Il faut utiliser l'id et non le name (integer attendu par le back-end)
         option.innerText = cat.name
         inputSelectCategories.appendChild(option)
      })
@@ -399,7 +400,7 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
 
     // Création de la fonction d'envoi des données du formulaire en utilisant les paramètres formData et token
     async function submitForm(formData, token) {
-        const initialResponse = await fetch("https://sophie-bluel-three.vercel.app/api/works", {
+        const initialResponse = await fetch("http://localhost:3000/api/works", {
             method: 'POST',
             headers: {
                 "accept": "application/json",
@@ -417,9 +418,11 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
             // On appelle la fonction showConfirmationModal pour afficher la modale de confirmation
             showConfirmationModal()
             // nouvelle requête GET pour récupérer les données à jour après la suppression
-            const newResponse = await fetch("https://sophie-bluel-three.vercel.app/api/works")
+            const newResponse = await fetch("http://localhost:3000/api/works")
             const newDataAfterAddedImage = await newResponse.json()
             generateData(newDataAfterAddedImage)
+            imageUploadSubmitBtn.value = "Valider"
+
         }
 
         // Appel de la fonction fetchDataAndUpdateModal pour mettre à jour les images dans la modal

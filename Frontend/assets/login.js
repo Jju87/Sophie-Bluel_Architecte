@@ -79,10 +79,32 @@ let passwordInput = document.getElementById("passwordInput")
 
 //********* Fonction userLogin *************/
 
+export async function userSignUp() {
+    const responseSignUp = await fetch("http://localhost:3000/api/users/signup", {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: emailInput.value,
+            password: passwordInput.value,
+        })
+    })
+
+    if (responseSignUp.ok) {
+        const dataSignUp = await responseSignUp.json()
+        console.log(dataSignUp)
+    } else {
+        console.log("Sign up failed")
+    }
+}
+    
+
 
 // Fonction qui permet de récupérer le token de l'utilisateur et de le stocker dans le localstorage
 export async function userLogin() {
-    const responseLogin = await fetch("https://sophie-bluel-three.vercel.app/api/users/login", {
+    const responseLogin = await fetch("http://localhost:3000/api/users/login", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

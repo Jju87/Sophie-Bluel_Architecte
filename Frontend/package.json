@@ -1,0 +1,23 @@
+{
+  "name": "portfolio-sophie-bluel-architecte",
+  "version": "1.0.0",
+  "description": "projet réalisé par julien gardier",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve -s .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jju87/Bluel-frontend-heroku.git"
+  },
+  "author": "julien gardier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jju87/Bluel-frontend-heroku/issues"
+  },
+  "homepage": "https://github.com/Jju87/Bluel-frontend-heroku#readme",
+  "dependencies": {
+    "serve": "^14.2.3"
+  }
+}

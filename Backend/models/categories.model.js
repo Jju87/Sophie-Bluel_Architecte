@@ -1,15 +1,14 @@
 
-module.exports = (sequelize, DataTypes) => {
-	const Categories = sequelize.define(
-		"categories",
+module.exports = mongoose => {
+	const Categories = mongoose.model(
+	  "categories",
+	  new mongoose.Schema(
 		{
-		name: {
-			type: DataTypes.STRING,
-			allowNull: false,
-			unique: true,
-			},
+		  name: { type: String, required: true, unique: true },
 		},
-		{timestamps: false}
-	)
-	return Categories
-}
+		{ timestamps: false }
+	  )
+	);
+  
+	return Categories;
+  };

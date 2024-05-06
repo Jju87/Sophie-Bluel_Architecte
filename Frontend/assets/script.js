@@ -17,7 +17,7 @@ if (token) {
 
 
 // Récupération des données GET /works
-export const response = await fetch("https://sophie-bluel-three.vercel.app/api/works")
+export const response = await fetch("http://localhost:3000/api/works")
 export const data = await response.json()
 //console.log(data);
 

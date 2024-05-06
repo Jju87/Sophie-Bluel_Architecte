@@ -14,6 +14,17 @@
 	}
 } 
 
+@keyframes pulse2 {
+	0% {
+	}
+	50% {
+		color:#B1663C;
+	}
+	100% {
+	}
+} 
+
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -77,6 +88,9 @@ header {
 	display: flex;
 	justify-content: space-between;
 	margin: 50px 0;
+}
+#link-login{
+	animation: pulse2 3300ms infinite;
 }
 section {
 	margin: 50px 0
@@ -562,6 +576,9 @@ footer nav ul {
 	align-items: center;
 	position: relative;
 }
+#passwordInput{
+	margin-bottom: 40px;
+}
 .login-btn{
 	cursor: pointer;
 	animation: pulse 2300ms infinite;
@@ -751,5 +768,12 @@ footer nav ul {
 	.modal-gallery__eraser img {
 		height: 100%;
 	}
-	
+	.img-added-confirmation__content p{
+		font-family: 'Syne';
+		font-weight: 400;
+		font-size: 12px;
+		text-align: center;
+		color: white;
+	}
+
 }

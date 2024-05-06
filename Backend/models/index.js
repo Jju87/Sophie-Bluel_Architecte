@@ -1,30 +1,18 @@
-const dbConfig = require("./../config/db.config.js");
-const {Sequelize}  = require("sequelize");
-const config = require("../config/db.config");
+const mongoose = require('mongoose');
+const User = require('./users.model');
+const Work = require('./works.model');
+const Category = require('./categories.model');
 
-const sequelize = new Sequelize('project6-db', 'user', 'pass', config)
-
-const db = {}
-
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
-
-db.users = require('./users.model.js')(sequelize, Sequelize);
-db.works = require('./works.model.js')(sequelize, Sequelize);
-db.categories = require('./categories.model.js')(sequelize, Sequelize);
-
-// Works and Categories Relationships
-db.categories.hasMany(db.works, {as: "works"})
-db.works.belongsTo(db.categories, {
-	foreignKey: 'categoryId',
-	as: 'category'
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
-// Works and Users Relationships
-db.users.hasMany(db.works, {as: "works"})
-db.works.belongsTo(db.users, {
-	foreignKey: 'userId',
-	as: 'user'
-});
+const db = {};
+
+db.mongoose = mongoose;
+db.users = User(mongoose);
+db.works = Work(mongoose);
+db.categories = Category(mongoose);
 
 module.exports = db;

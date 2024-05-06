@@ -1,18 +1,16 @@
 
-module.exports = (sequelize, DataTypes) => {
-	const Works = sequelize.define(
-		"works",
+module.exports = mongoose => {
+	const Works = mongoose.model(
+	  "works",
+	  new mongoose.Schema(
 		{
-		title: {
-			type: DataTypes.STRING,
-			allowNull: false
-			},
-		imageUrl: {
-			type: DataTypes.STRING,
-			allowNull: false
-			}
+		  title: { type: String, required: true },
+		  imageUrl: { type: String, required: true },
+		  category: { type: mongoose.Schema.Types.ObjectId, ref: 'categories', required: true },
 		},
-		{timestamps:false}
-	)
-	return Works
-}
+		{ timestamps: false }
+	  )
+	);
+  
+	return Works;
+  };

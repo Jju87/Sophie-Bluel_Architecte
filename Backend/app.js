@@ -3,9 +3,7 @@ const path = require('path');
 const cors = require('cors')
 require('dotenv').config();
 const helmet = require('helmet');
-const swaggerUi = require('swagger-ui-express')
-const yaml = require('yamljs')
-const swaggerDocs = yaml.load('swagger.yaml')
+const mongoose = require('mongoose');
 const app = express()
 app.use(cors())
 app.use(express.json())
@@ -14,13 +12,18 @@ app.use(helmet({
       crossOriginResourcePolicy: false,
     }));
 
-const db = require("./models");
 const userRoutes = require('./routes/user.routes');
 const categoriesRoutes = require('./routes/categories.routes');
 const worksRoutes = require('./routes/works.routes');
-db.sequelize.sync().then(()=> console.log('db is ready'));
+
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log('MongoDB Connected...'))
+.catch(err => console.log(err));
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the API!');
+});
 app.use('/api/users', userRoutes);
 app.use('/api/categories', categoriesRoutes);
 app.use('/api/works', worksRoutes);
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 module.exports = app;
