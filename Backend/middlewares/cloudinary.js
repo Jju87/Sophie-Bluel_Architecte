@@ -4,7 +4,7 @@ require('dotenv').config({ path: 'backend/.env' });
 const CloudinaryName = process.env.CLOUD_NAME;
 const CloudinaryKey = process.env.API_KEY;
 const CloudinaryApiSecret = process.env.API_SECRET;
-
+//apikey changed
 cloudinary.config({
   cloud_name: CloudinaryName,
   api_key: CloudinaryKey,
