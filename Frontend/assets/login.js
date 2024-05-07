@@ -80,7 +80,7 @@ let passwordInput = document.getElementById("passwordInput")
 //********* Fonction userLogin *************/
 
 export async function userSignUp() {
-    const responseSignUp = await fetch("http://localhost:3000/api/users/signup", {
+    const responseSignUp = await fetch("https://bluel-backend.vercel.app/api/users/signup", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -104,7 +104,7 @@ export async function userSignUp() {
 
 // Fonction qui permet de récupérer le token de l'utilisateur et de le stocker dans le localstorage
 export async function userLogin() {
-    const responseLogin = await fetch("http://localhost:3000/api/users/login", {
+    const responseLogin = await fetch("https://bluel-backend.vercel.app/api/users/login", {
         method: 'POST',
         headers: {
             'Accept': 'application/json',

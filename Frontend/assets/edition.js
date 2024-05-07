@@ -119,7 +119,7 @@ async function eraseElementByID(id) {
         try {
             // Ici try/catch car on fait une requête DELETE qui peut échouer si 
             // le token n'est pas valide
-            const response = await fetch(`http://localhost:3000/api/works/${id}`, {
+            const response = await fetch(`https://bluel-backend.vercel.app/api/works/${id}`, {
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -140,7 +140,7 @@ async function eraseElementByID(id) {
                 }
 
                 // nouvelle requête GET pour récupérer les données à jour après la suppression
-                const response = await fetch("http://localhost:3000/api/works")
+                const response = await fetch("https://bluel-backend.vercel.app/api/works")
                 const newDataAfterDelete = await response.json()
                 console.log('Updated data:', newDataAfterDelete)
                 
@@ -201,7 +201,7 @@ async function generateImagesInModal(data) {
 
 // Fonction qui récupère les données de l'API et qui les affiche dans la modal
 async function fetchDataAndUpdateModal() {
-    const response = await fetch("http://localhost:3000/api/works")
+    const response = await fetch("https://bluel-backend.vercel.app/api/works")
     const data = await response.json()
     generateImagesInModal(data)
     //console.log("fonction fetchDataAndUpdateModal appelée")
@@ -363,7 +363,7 @@ const inputSelectCategories = document.getElementById("image-upload-input-catego
 // Appel des catégories de l'API pour les afficher dans le select
 // Prioriser cette méthode plutôt que de des les hardcoder dans le HTML (vu avec mentor)
 async function fetchCategoriesForSelectInput() {
-    const responseCategories = await fetch("http://localhost:3000/api/categories")
+    const responseCategories = await fetch("https://bluel-backend.vercel.app/api/categories")
     const selectCategories = await responseCategories.json()
     //console.log(selectCategories)
 
@@ -400,7 +400,7 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
 
     // Création de la fonction d'envoi des données du formulaire en utilisant les paramètres formData et token
     async function submitForm(formData, token) {
-        const initialResponse = await fetch("http://localhost:3000/api/works", {
+        const initialResponse = await fetch("https://bluel-backend.vercel.app/api/works", {
             method: 'POST',
             headers: {
                 "accept": "application/json",
@@ -418,7 +418,7 @@ imageUploadSubmitBtn.addEventListener("click", (event) => {
             // On appelle la fonction showConfirmationModal pour afficher la modale de confirmation
             showConfirmationModal()
             // nouvelle requête GET pour récupérer les données à jour après la suppression
-            const newResponse = await fetch("http://localhost:3000/api/works")
+            const newResponse = await fetch("https://bluel-backend.vercel.app/api/works")
             const newDataAfterAddedImage = await newResponse.json()
             generateData(newDataAfterAddedImage)
             imageUploadSubmitBtn.value = "Valider"
