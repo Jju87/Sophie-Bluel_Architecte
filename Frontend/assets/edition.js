@@ -265,9 +265,9 @@ imageUploadInputFile.addEventListener("change", (event) => {
         // et on efface le contenu de l'input file
         imageUploadInputFile.value = ""
         //sinon, si le fichier est trop lourd...
-    } else if (fileObject.size > 4000000) {
+    } else if (fileObject.size > 20000000) {
         // ...le navigateur affiche un message d'eurreur
-        alert('The file is too large. Please select a file less than 4MB.')
+        alert('The file is too large. Please select a file less than 20MB.')
         // et on efface le contenu de l'input file
         imageUploadInputFile.value = ''
         //sinon, si le fichier est bien une image de la bonne taille:
