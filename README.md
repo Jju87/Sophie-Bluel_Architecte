@@ -2,7 +2,7 @@
 
 Sophie Bluel, a dynamic web page created with JavaScript (vanilla).
 
-![Sophie Bluel](https://www.cams-code-projects.com/img-projects/sophie-bluel/sophie-bluel-picture-1.webp)
+![Sophie Bluel]([https://www.cams-code-projects.com/img-projects/sophie-bluel/sophie-bluel-picture-1.webp](https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-bluel-Mockup.webp))
 
 ## Features
 
