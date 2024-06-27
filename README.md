@@ -2,12 +2,12 @@
 
 Sophie Bluel, a dynamic web page created with JavaScript (vanilla).
 
-![Sophie Bluel]([https://www.cams-code-projects.com/img-projects/sophie-bluel/sophie-bluel-picture-1.webp](https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-bluel-Mockup.webp))
+![Sophie Bluel](https://kevin-bret.github.io/MY_PICTURES/images/portfolio/projects/bluel/Sophie-bluel-Mockup.webp)
 
 ## Features
 
 - **User Authentication**: Once logged in, the architect Sophie Bluel will be able to upload or delete media on her portfolio website.
-- **API Communication**: Communicating with an API (test were made using Swagger/Postman).
+- **API Communication**: Communicating with an API (tests were made using Swagger/Postman).
 - **DOM Manipulation**: Manipulating DOM elements with JavaScript.
 - **Dynamic Data Updates**: Dynamically updating data to avoid page reloads for the user.
 
@@ -25,3 +25,4 @@ Try logging in with the demo account to add or delete a photo!
 [Live Demo](https://sophie-bluel-architecte-iota.vercel.app/)
 
 Enjoy your visit!
+
